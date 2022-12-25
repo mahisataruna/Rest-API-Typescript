@@ -11,3 +11,6 @@
 # Misc
 DS_Store
 .package-lock.json
+
+# Env
+.env
