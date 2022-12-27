@@ -7,7 +7,7 @@ export const addProductToDB = async (payload: ProductType) => {
   return await productModel.create(payload)
 }
 
-// Get Product
+// Get Product from DB
 export const getProductFromDB = async () => {
   return await productModel
     .find()
@@ -23,4 +23,14 @@ export const getProductFromDB = async () => {
 // Get ID
 export const getProductById = async (id: String) => {
   return await productModel.findOne({ product_id: id })
+}
+
+// Update data product
+export const updateProductById = async (id: String, payload: ProductType) => {
+  return await productModel.findOneAndUpdate(
+    {
+      product_id: id
+    },
+    { $set: payload }
+  )
 }
